@@ -2,7 +2,6 @@ package nd.ermakov.springboot.service;
 
 import nd.ermakov.springboot.model.User;
 import nd.ermakov.springboot.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -10,8 +9,7 @@ public class AuthService {
 
     private UserRepository userRepository;
 
-    @Autowired
-    public void setUserRepository(UserRepository userRepository) {
+    public AuthService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 

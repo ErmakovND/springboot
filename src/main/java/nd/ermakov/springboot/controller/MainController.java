@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.util.List;
+import java.util.Collection;
 
 @Controller
 public class MainController {
@@ -92,7 +92,7 @@ public class MainController {
 
     @GetMapping("/audit")
     public ModelAndView getAuditPage(ModelMap model) {
-        List<Audit> auditList = auditService.get();
+        Collection<Audit> auditList = auditService.get();
         model.addAttribute("audit", auditList);
         return new ModelAndView("audit", model);
     }

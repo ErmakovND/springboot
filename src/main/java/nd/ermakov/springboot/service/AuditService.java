@@ -5,6 +5,7 @@ import nd.ermakov.springboot.repository.AuditRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collection;
 import java.util.List;
 
 @Service
@@ -12,8 +13,7 @@ public class AuditService {
 
     private AuditRepository auditRepository;
 
-    @Autowired
-    public void setAuditRepository(AuditRepository auditRepository) {
+    public AuditService(AuditRepository auditRepository) {
         this.auditRepository = auditRepository;
     }
 
@@ -21,7 +21,7 @@ public class AuditService {
         auditRepository.save(new Audit(name, password, getStringStatus(authStatus)));
     }
 
-    public List<Audit> get() {
+    public Collection<Audit> get() {
         return auditRepository.findAll();
     }
 
